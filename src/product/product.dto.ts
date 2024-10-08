@@ -1,6 +1,4 @@
-import { Type } from 'class-transformer';
-import { IsInt, IsOptional, IsPositive, IsString, ValidateNested } from 'class-validator';
-import { CreateCategoryDto } from 'src/category/category.dto';
+import { IsInt, IsPositive, IsString } from 'class-validator';
 
 export class CreateProductDto {
   @IsString()
@@ -9,9 +7,8 @@ export class CreateProductDto {
   @IsString()
   description: string;
 
-  @ValidateNested()
-  @Type(() => CreateCategoryDto)
-  category: CreateCategoryDto;
+  @IsString()
+  category: string;
 
   @IsPositive()
   price: number;
@@ -21,12 +18,4 @@ export class CreateProductDto {
   stock: number;
 }
 
-export class UpdateCategoryDto {
-  @IsOptional()
-  @IsString()
-  name: string;
-
-  @IsOptional()
-  @IsString()
-  description: string;
-}
+export class UpdateProductDto {}

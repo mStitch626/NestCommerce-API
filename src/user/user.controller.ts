@@ -2,7 +2,7 @@ import { BadRequestException, Body, Controller, Delete, Get, Param, Post, Put } 
 import * as bcrypt from 'bcrypt';
 import { UserService } from './user.service';
 import { CreateUserDto, UpdateUserDto } from './user.dto';
-import { User } from './user.entity';
+import { User } from './user.schema';
 
 @Controller('user')
 export class UserController {

@@ -7,11 +7,10 @@ import { ConfigModule } from '@nestjs/config';
 
 import { JwtModule } from '@nestjs/jwt';
 import { AuthModule } from './auth/auth.module';
-// import { TypeOrmModule } from '@nestjs/typeorm';
-import { ProductModule } from './product/product.module';
 import { CategoryModule } from './category/category.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { ProductModule } from './product/product.module';
 
 @Module({
   imports: [
@@ -34,7 +33,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     UserModule,
     CommonModule,
     AuthModule,
-    // ProductModule,
+    ProductModule,
     CategoryModule,
   ],
   controllers: [AppController],

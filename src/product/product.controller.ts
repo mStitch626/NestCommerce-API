@@ -5,13 +5,13 @@ import { ProductService } from 'src/product/product.service';
 @Controller('product')
 export class ProductController {
   constructor(private productService: ProductService) {}
-//   @Get()
-//   async get() {
-//     return await this.productService.findAll();
-//   }
+  @Get()
+  async get() {
+    return await this.productService.findAll();
+  }
 
-//   @Post()
-//   async create(@Body() productData: CreateProductDto) {
-//     return await this.productService.create(productData);
-//   }
+  @Post()
+  async create(@Body() productData: CreateProductDto) {
+    return await this.productService.create(productData);
+  }
 }
