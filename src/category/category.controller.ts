@@ -1,7 +1,9 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
-import { CreateCategoryDto } from './category.dto';
+import { Body, Controller, Delete, Get, Param, Post, Put, UseGuards } from '@nestjs/common';
+import { CreateCategoryDto, UpdateCategoryDto } from './category.dto';
 import { CategoryService } from './category.service';
-
+import { Category } from './category.schema';
+import { JwtAuthGuard } from 'src/auth/strategies/jwt-auth.guard';
+@UseGuards(JwtAuthGuard)
 @Controller('category')
 export class CategoryController {
   constructor(private categoryService: CategoryService) {}
@@ -13,5 +15,15 @@ export class CategoryController {
   @Post()
   async create(@Body() categoryData: CreateCategoryDto) {
     return await this.categoryService.create(categoryData);
+  }
+
+  @Put(':id')
+  async update(@Param('id') id: string, @Body() categoryData: UpdateCategoryDto) {
+    return await this.categoryService.update(id, categoryData);
+  }
+
+  @Delete(':id')
+  async remove(@Param('id') id: string) {
+    return await this.categoryService.remove(id, Category.name);
   }
 }

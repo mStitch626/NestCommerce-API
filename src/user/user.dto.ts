@@ -1,5 +1,29 @@
 import { IsNotEmpty, IsString, IsEmail, IsEnum, IsBoolean, IsOptional } from 'class-validator';
 import { UserRole } from './user.schema';
+import { Exclude, Expose } from 'class-transformer';
+
+export class GetUserDto {
+  @Expose()
+  username: string;
+  @Expose()
+  first_name: string;
+
+  @IsNotEmpty()
+  @IsString()
+  last_name: string;
+
+  @Exclude()
+  is_active: boolean;
+
+  @Expose()
+  email: string;
+
+  @Exclude()
+  password: string;
+
+  @Expose()
+  role: UserRole;
+}
 
 export class CreateUserDto {
   @IsNotEmpty()

@@ -1,9 +1,10 @@
-import { BadRequestException, Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import { BadRequestException, Body, Controller, Delete, Get, Param, Post, Put, UseGuards } from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
 import { UserService } from './user.service';
 import { CreateUserDto, UpdateUserDto } from './user.dto';
 import { User } from './user.schema';
-
+import { JwtAuthGuard } from 'src/auth/strategies/jwt-auth.guard';
+@UseGuards(JwtAuthGuard)
 @Controller('user')
 export class UserController {
   constructor(private userService: UserService) {}
@@ -20,15 +21,18 @@ export class UserController {
     }
     const hashed = await bcrypt.hash(body.password, 10);
 
-    const { id, username, first_name, last_name, email, role } = await this.userService.create({
-      username: body.username,
-      first_name: body.first_name,
-      last_name: body.last_name,
-      is_active: body.is_active,
-      email: body.email,
-      password: hashed,
-      role: body.role,
-    });
+    const { id, username, first_name, last_name, email, role } = await this.userService.create(
+      {
+        username: body.username,
+        first_name: body.first_name,
+        last_name: body.last_name,
+        is_active: body.is_active,
+        email: body.email,
+        password: hashed,
+        role: body.role,
+      },
+      User.name,
+    );
 
     return { id, first_name, last_name, username, email, role };
   }
@@ -47,7 +51,7 @@ export class UserController {
   }
 
   @Delete(':id')
-  async delete(@Param('id') id: number) {
+  async delete(@Param('id') id: string) {
     this.userService.remove(id);
   }
 }
