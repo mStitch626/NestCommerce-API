@@ -42,6 +42,15 @@ export abstract class CommonService {
     };
   }
 
+  async createMultiple(data, schemaName: string = 'Object'): Promise<any> {
+    try {
+      const result = await this.anyRepository.insertMany(data);
+      return result;
+    } catch (error) {
+      throw new InternalServerErrorException(`Failed to create ${schemaName}: ${error.message}`);
+    }
+  }
+
   async create(data, schemaName: string = 'Object'): Promise<any> {
     try {
       const result = await this.anyRepository.create(data);

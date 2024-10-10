@@ -13,8 +13,13 @@ export class CategoryController {
   }
 
   @Post()
-  async create(@Body() categoryData: CreateCategoryDto) {
+  async create(@Body() categoryData: CreateCategoryDto[]) {
     return await this.categoryService.create(categoryData);
+  }
+
+  @Post('multiple')
+  async createMany(@Body() categoryData: CreateCategoryDto[]) {
+    return await this.categoryService.createMultiple(categoryData);
   }
 
   @Put(':id')

@@ -1,0 +1,12 @@
+# Ignore all files in node_modules
+node_modules/
+
+# Ignore build or dist directories
+build/
+dist/
+
+# Ignore specific files
+*.min.js
+public/styles/vendor.css
+
+database.js

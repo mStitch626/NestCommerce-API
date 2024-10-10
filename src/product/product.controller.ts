@@ -28,6 +28,20 @@ export class ProductController {
     return await this.productService.create(productData, Product.name);
   }
 
+  @Post('multiple')
+  async createMultiple(@Body() productsData: CreateProductDto[]) {
+    for (const productData of productsData) {
+      const category = await this.categoryService.findOne({ _id: productData.category });
+      if (!category) {
+        throw new NotFoundException(
+          `Failed to create ${Product.name}: ${Category.name} with ID ${productData.category} not found for product ${productData.name}`,
+        );
+      }
+    }
+    const createdProducts = await this.productService.createMultiple(productsData, Product.name);
+    return createdProducts;
+  }
+
   @Delete(':id')
   async remove(@Param('id') id: string) {
     return await this.productService.remove(id, Product.name);
