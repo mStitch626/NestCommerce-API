@@ -35,7 +35,12 @@ The **Product Management API** provides a robust backend service to manage produ
 Ensure that the following are installed:
 - **Node.js** (version 18.x or later)
 - **MongoDB** (version 5.x or later)
-
+### Cloning the Repository
+Clone the repository to your local machine using the following command:
+```bash
+git clone https://github.com/mStitch626/temtem-one-test/
+cd temtem-one-test
+```
 ### Install dependencies
 ```bash
 npm i .
