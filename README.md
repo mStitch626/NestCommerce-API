@@ -38,7 +38,7 @@ Ensure that the following are installed:
 
 ### Install dependencies
 ```bash
-npm install .
+npm i .
 ```
 ## MongoDB Setup
 #### **Creating the Database**
