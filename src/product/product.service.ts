@@ -52,7 +52,4 @@ export class ProductService extends CommonService {
       },
     };
   }
-  // async softDeleteAll(): Promise<any> {
-  //   return await this.productRepository.updateMany({}, { $set: { is_deleted: false } });
-  // }
 }

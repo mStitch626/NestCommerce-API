@@ -82,6 +82,13 @@ npm run start
 ```bash
 npm run start:dev
 ```
+
+1. if you get Cannot find module 'bcrypt' error, please run the following command (see [cannot-find-module-bcrypt](https://stackoverflow.com/questions/34546272/cannot-find-module-bcrypt)):
+```bash
+npm uninstall bcrypt
+npm install bcrypt
+```
+
 ## API documentation
 You can access the generated API documentation at:
 http://localhost:3000/api-docs
