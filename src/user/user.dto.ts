@@ -2,6 +2,29 @@ import { IsString, IsEmail, IsEnum, IsBoolean, IsOptional } from 'class-validato
 import { UserRole } from './user.schema';
 import { ApiProperty } from '@nestjs/swagger';
 
+export class ReturnedUserDetails {
+  @ApiProperty({ description: 'Unique identifier of the user' })
+  _id: string;
+
+  @ApiProperty({ description: 'Username of the user' })
+  username: string;
+
+  @ApiProperty({ description: 'First name of the user' })
+  first_name: string;
+
+  @ApiProperty({ description: 'Last name of the user' })
+  last_name: string;
+
+  @ApiProperty({ description: 'Status of the user account' })
+  is_active: boolean;
+
+  @ApiProperty({ description: 'Email address of the user' })
+  email: string;
+
+  @ApiProperty({ enum: UserRole, description: 'Role assigned to the user' })
+  role: UserRole; // Assuming UserRole is an enum
+}
+
 export type returnedUserDetails = {
   _id: string;
   username: string;

@@ -65,8 +65,6 @@ To run this project, you will need to set the following environment variables in
 
 `DB_PORT`
 
-`DB_UERNAME`
-
 `JWT_SECRET`
 
 `JWT_REFRESH_SECRET`

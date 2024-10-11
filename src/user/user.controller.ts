@@ -1,7 +1,7 @@
 import { BadRequestException, Body, Controller, Delete, Get, Param, Post, Put, UseGuards } from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
 import { UserService } from './user.service';
-import { CreateUserDto, returnedUserDetails, UpdateUserDto } from './user.dto';
+import { CreateUserDto, UpdateUserDto, ReturnedUserDetails, returnedUserDetails } from './user.dto';
 import { User, UserRole } from './user.schema';
 import { JwtAuthGuard } from '../auth/guard/jwt-auth.guard';
 import { Roles } from '../roles/roles.decorator';
@@ -30,9 +30,9 @@ export class UserController {
   @ApiResponse({
     status: 200,
     description: 'Successfully retrieved all users',
-    type: [User],
+    type: [ReturnedUserDetails],
   })
-  async all() {
+  async all(): Promise<returnedUserDetails[]> {
     const users = (await this.userService.findAll()).map((user) => {
       const { _id, username, first_name, last_name, is_active, email, role } = user;
       return { _id, username, first_name, last_name, is_active, email, role };
@@ -47,6 +47,7 @@ export class UserController {
   @ApiResponse({
     status: 200,
     description: 'User successfully retrieved using the provided ID.',
+    type: ReturnedUserDetails,
   })
   async findById(@Param('id') id: string): Promise<returnedUserDetails> {
     const { _id, username, first_name, last_name, is_active, email, role } = await this.userService.findById(id);
@@ -58,7 +59,7 @@ export class UserController {
   @ApiResponse({
     status: 201,
     description: 'User successfully created',
-    type: User,
+    type: ReturnedUserDetails,
   })
   @ApiResponse({
     status: 400,
@@ -92,6 +93,7 @@ export class UserController {
   @ApiResponse({
     status: 200,
     description: 'User information updated successfully, with the updated user details returned.',
+    type: ReturnedUserDetails,
   })
   @ApiBody({ type: UpdateUserDto })
   async update(@Param('id') id: number, @Body() body: UpdateUserDto): Promise<returnedUserDetails> {
