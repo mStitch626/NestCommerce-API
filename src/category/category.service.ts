@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { Category } from './category.schema';
-import { CommonService } from 'src/common/common.service';
+import { CommonService } from '../common/common.service';
 import { Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
 

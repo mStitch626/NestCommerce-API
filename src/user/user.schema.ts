@@ -7,7 +7,10 @@ export enum UserRole {
   CLIENT = 'client',
 }
 
-@Schema()
+@Schema({
+  toJSON: { versionKey: false },
+  toObject: { versionKey: false },
+})
 export class User extends Document {
   @Prop({ required: true, type: String, unique: true })
   username: string;
@@ -18,7 +21,7 @@ export class User extends Document {
   @Prop({ required: true, type: String })
   last_name: string;
 
-  @Prop({ required: true, type: Boolean, default: true })
+  @Prop({ required: true, type: Boolean, default: false })
   is_active: boolean;
 
   @Prop({ required: false, type: String })
@@ -29,6 +32,9 @@ export class User extends Document {
 
   @Prop({ required: true, enum: UserRole })
   role: UserRole;
+
+  @Prop({ required: false, type: String, default: null })
+  refresh_token?: string;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

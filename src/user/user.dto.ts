@@ -1,62 +1,94 @@
-import { IsNotEmpty, IsString, IsEmail, IsEnum, IsBoolean, IsOptional } from 'class-validator';
+import { IsString, IsEmail, IsEnum, IsBoolean, IsOptional } from 'class-validator';
 import { UserRole } from './user.schema';
-import { Exclude, Expose } from 'class-transformer';
+import { ApiProperty } from '@nestjs/swagger';
 
-export class GetUserDto {
-  @Expose()
+export type returnedUserDetails = {
+  _id: string;
   username: string;
-  @Expose()
   first_name: string;
-
-  @IsNotEmpty()
-  @IsString()
   last_name: string;
-
-  @Exclude()
   is_active: boolean;
-
-  @Expose()
   email: string;
-
-  @Exclude()
-  password: string;
-
-  @Expose()
   role: UserRole;
-}
+};
 
 export class CreateUserDto {
-  @IsNotEmpty()
   @IsString()
+  @ApiProperty({ description: 'The unique username of the user.', example: 'maitmehdi' })
   username: string;
 
-  @IsNotEmpty()
   @IsString()
+  @ApiProperty({ description: 'The first name of the user.', example: 'Mohamed' })
   first_name: string;
 
-  @IsNotEmpty()
   @IsString()
+  @ApiProperty({ description: 'The last name of the user.', example: 'Ait Mehdi' })
   last_name: string;
 
   @IsOptional()
   @IsBoolean()
-  is_active: boolean;
+  @ApiProperty({ description: 'Indicates whether the user account is active or not.', example: true, default: false })
+  is_active?: boolean;
 
   @IsOptional()
   @IsEmail()
-  email: string;
+  @ApiProperty({ description: 'The email address of the user.', example: 'ait7mehdi7mohamed@gamil.com' })
+  email?: string;
 
-  @IsNotEmpty()
   @IsString()
+  @ApiProperty({ description: 'The password for the user account.', example: 'mohamed' })
   password: string;
 
-  @IsNotEmpty()
   @IsString()
+  @ApiProperty({ description: 'The password confirmation for validation.', example: 'mohamed' })
   confirmed_password: string;
 
-  @IsNotEmpty()
   @IsEnum(UserRole)
+  @ApiProperty({ description: 'The role assigned to the user, specified as an enum.', example: UserRole.ADMIN })
   role: UserRole;
 }
 
-export class UpdateUserDto extends CreateUserDto {}
+export class UpdateUserDto {
+  @IsOptional()
+  @IsString()
+  @ApiProperty({ description: 'The unique username of the user.', example: 'm.aitmehdi' })
+  username: string;
+
+  @IsOptional()
+  @IsString()
+  @ApiProperty({ description: 'The first name of the user.', example: 'Mohamed' })
+  first_name: string;
+
+  @IsOptional()
+  @IsString()
+  @ApiProperty({ description: 'The last name of the user.', example: 'Ait Mehdi' })
+  last_name: string;
+
+  @IsOptional()
+  @IsBoolean()
+  @ApiProperty({ description: 'Indicates whether the user account is active or not.', example: true, default: false })
+  is_active?: boolean;
+
+  @IsOptional()
+  @IsEmail()
+  @ApiProperty({
+    description: 'The email address of the user. This field is optional',
+    example: 'ait7mehdi7mohamed@gmail.com',
+  })
+  email?: string;
+
+  @IsOptional()
+  @IsString()
+  @ApiProperty({ description: 'The password for the user account.', example: 'mohamed' })
+  password: string;
+
+  @IsOptional()
+  @IsEnum(UserRole)
+  @ApiProperty({
+    description: 'The role assigned to the user, specified as an enum.',
+    example: UserRole.ADMIN,
+    enum: UserRole,
+    enumName: 'UserRole',
+  })
+  role: UserRole;
+}

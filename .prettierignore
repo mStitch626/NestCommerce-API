@@ -8,5 +8,5 @@ dist/
 # Ignore specific files
 *.min.js
 public/styles/vendor.css
-
+database/
 database.js

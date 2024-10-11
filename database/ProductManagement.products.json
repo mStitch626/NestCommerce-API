@@ -1,0 +1,120 @@
+[{
+  "_id": {
+    "$oid": "67080fa9131f416046fa8bed"
+  },
+  "name": "Men's Jacket",
+  "description": "A stylish winter jacket for men.",
+  "category": "67080a3144392bc2a0c4a505",
+  "price": 89.99,
+  "stock": 100,
+  "__v": 0,
+  "is_deleted": false
+},
+{
+  "_id": {
+    "$oid": "67080fa9131f416046fa8bee"
+  },
+  "name": "Fiction Novel",
+  "description": "A best-selling fiction novel by a famous author.",
+  "category": "67080a3144392bc2a0c4a506",
+  "price": 15.99,
+  "stock": 200,
+  "__v": 0,
+  "is_deleted": false
+},
+{
+  "_id": {
+    "$oid": "67080fa9131f416046fa8bef"
+  },
+  "name": "Refrigerator",
+  "description": "A large double-door refrigerator with a freezer.",
+  "category": "67080a3144392bc2a0c4a507",
+  "price": 599.99,
+  "stock": 50,
+  "__v": 0,
+  "is_deleted": false
+},
+{
+  "_id": {
+    "$oid": "67080fa9131f416046fa8bf0"
+  },
+  "name": "Facial Cleanser",
+  "description": "A gentle cleanser suitable for all skin types.",
+  "category": "67080a3144392bc2a0c4a508",
+  "price": 12.5,
+  "stock": 300,
+  "__v": 0,
+  "is_deleted": false
+},
+{
+  "_id": {
+    "$oid": "67080fa9131f416046fa8bf1"
+  },
+  "name": "Women's Boots",
+  "description": "Leather boots for women, perfect for winter.",
+  "category": "67080a3144392bc2a0c4a505",
+  "price": 120,
+  "stock": 75,
+  "__v": 0,
+  "is_deleted": false
+},
+{
+  "_id": {
+    "$oid": "67080fa9131f416046fa8bf2"
+  },
+  "name": "Science Textbook",
+  "description": "An advanced textbook for science students.",
+  "category": "67080a3144392bc2a0c4a506",
+  "price": 49.99,
+  "stock": 150,
+  "__v": 0,
+  "is_deleted": false
+},
+{
+  "_id": {
+    "$oid": "67080fa9131f416046fa8bf3"
+  },
+  "name": "Washing Machine",
+  "description": "A fully automatic washing machine with a dryer.",
+  "category": "67080a3144392bc2a0c4a507",
+  "price": 450,
+  "stock": 60,
+  "__v": 0,
+  "is_deleted": false
+},
+{
+  "_id": {
+    "$oid": "67080fa9131f416046fa8bf4"
+  },
+  "name": "Anti-Aging Serum",
+  "description": "A serum to reduce wrinkles and fine lines.",
+  "category": "67080a3144392bc2a0c4a508",
+  "price": 39.99,
+  "stock": 180,
+  "__v": 0,
+  "is_deleted": false
+},
+{
+  "_id": {
+    "$oid": "67080fa9131f416046fa8bf5"
+  },
+  "name": "Men's Sneakers",
+  "description": "Comfortable and stylish sneakers for men.",
+  "category": "67080a3144392bc2a0c4a505",
+  "price": 75,
+  "stock": 120,
+  "__v": 0,
+  "is_deleted": false
+},
+{
+  "_id": {
+    "$oid": "67080fa9131f416046fa8bf6"
+  },
+  "name": "Cookbook",
+  "description": "A cookbook filled with easy-to-make recipes.",
+  "category": "67080a3144392bc2a0c4a506",
+  "price": 25.99,
+  "stock": 250,
+  "__v": 0,
+  "is_deleted": false
+}]

@@ -1,0 +1,52 @@
+[{
+  "_id": {
+    "$oid": "67046c5e46bc7e0675a5f29d"
+  },
+  "username": "maitmehdi",
+  "first_name": "MoHamEd",
+  "last_name": "Ait Mehdi",
+  "is_active": true,
+  "password": "$2b$10$chOMgnPysUadW6pV4K/EH.U/hpplr8HcsQq0Xrtng/jl7X6whNDBC",
+  "role": "admin",
+  "__v": 0,
+  "refresh_token": "$2b$10$yWVy2jQertWdJL.2vVbwYuJgSh0QbUq2TjuyGAGw22N2thI3prJ.y"
+},
+{
+  "_id": {
+    "$oid": "6708167a0a5efa32c559c6ae"
+  },
+  "username": "m.chiboub",
+  "first_name": "Mayar",
+  "last_name": "Chiboub",
+  "is_active": true,
+  "password": "$2b$10$ZCRnUX5ZOGe8/AuIoX1rmOXzy3nzPD3H.0pLxDEzyPpMdWh4pzpgW",
+  "role": "manager",
+  "__v": 0,
+  "refresh_token": "$2b$10$ZF/Zfpybyz6ldoAQA8RA2up2.yhf9mYKnK7IafQ29xUbAeP7t2kK6"
+},
+{
+  "_id": {
+    "$oid": "670816a20a5efa32c559c6b0"
+  },
+  "username": "k.haddar",
+  "first_name": "Kamel",
+  "last_name": "Haddar",
+  "is_active": true,
+  "password": "$2b$10$Wz.Tf/mYoxJF.7B1lUPmjOqU47gbgqtPKmCMfI31qy1s4gbbPK/i.",
+  "role": "admin",
+  "__v": 0,
+  "refresh_token": "$2b$10$APBhH4Hcdfi.TrU9dZJeoeaOZQFXjXXW7gU5UxlCMelrMfeiO6de6"
+},
+{
+  "_id": {
+    "$oid": "67093dc574000d3d6cd3a3ca"
+  },
+  "username": "k.bellili",
+  "first_name": "Khaled",
+  "last_name": "Bellili",
+  "is_active": false,
+  "password": "$2b$10$39bfv9rGM3qQ124QpezEye517Fcv6BVHFOSCYY1ooafexZCew..3.",
+  "role": "client",
+  "refresh_token": null,
+  "__v": 0
+}]

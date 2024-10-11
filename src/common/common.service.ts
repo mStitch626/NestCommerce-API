@@ -1,46 +1,56 @@
 import { Injectable, InternalServerErrorException, NotFoundException } from '@nestjs/common';
 import { Model } from 'mongoose';
 
+export interface paginate {
+  data: any[];
+  meta: { total: number; page: number; last_page: number };
+}
+
 @Injectable()
 export abstract class CommonService {
   constructor(protected readonly anyRepository: Model<any>) {}
 
-  async findAll(options?: any): Promise<any[]> {
-    return await this.anyRepository.find(options);
+  async findAll(filter?: any): Promise<any[]> {
+    return await this.anyRepository.find(filter);
   }
 
   async findById(id: string): Promise<any> {
-    return await this.anyRepository.findById(id);
+    return await this.anyRepository.findById(id).exec();
   }
-  async findOne(where: any): Promise<any> {
-    return await this.anyRepository.findOne(where);
-  }
-
-  async findMany(conditions: any): Promise<any[]> {
-    return await this.anyRepository.find(conditions);
+  async findOne(filter: any): Promise<any> {
+    return await this.anyRepository.findOne(filter);
   }
 
-  async paginate(page: number = 1): Promise<{
-    data: any[];
-    meta: { total: number; page: number; last_page: number };
-  }> {
-    const take = 15;
-
-    const [data, total] = await this.anyRepository.find({
-      take,
-      skip: (page - 1) * take,
-    });
-
-    return {
-      data: data,
-
-      meta: {
-        total,
-        page,
-        last_page: Math.ceil(total / page),
-      },
-    };
+  async findMany(filter: any, projection?: any): Promise<any[]> {
+    return await this.anyRepository.find(filter, projection);
   }
+
+  // async paginate(
+  //   page?: number,
+  //   take: number = 5,
+  // ): Promise<{
+  //   data: any[];
+  //   meta: { total: number; take: number; page: number; last_page: number };
+  // }> {
+  //   const total = await this.anyRepository.countDocuments();
+  //   take = page ? take : total;
+  //   page = page ? page : 1;
+  //   const data = await this.anyRepository
+  //     .find()
+  //     .skip((page - 1) * take)
+  //     .limit(take)
+  //     .exec();
+
+  //   return {
+  //     data: data,
+  //     meta: {
+  //       total,
+  //       take,
+  //       page,
+  //       last_page: Math.ceil(total / take),
+  //     },
+  //   };
+  // }
 
   async createMultiple(data, schemaName: string = 'Object'): Promise<any> {
     try {
@@ -62,10 +72,17 @@ export abstract class CommonService {
 
   async update(id, data, schemaName: string = 'Object'): Promise<any> {
     try {
-      const result = await this.anyRepository.findByIdAndUpdate(id, data).exec();
+      const result = await this.anyRepository.findByIdAndUpdate(id, data, { new: true }).exec();
+      if (!result) {
+        throw new NotFoundException(`${schemaName} with ID ${id} not found`);
+      }
       return result;
     } catch (error) {
-      throw new InternalServerErrorException(`Failed to update ${schemaName}: ${error.message}`);
+      if (error instanceof NotFoundException) {
+        throw error;
+      } else {
+        throw new InternalServerErrorException(`Failed to update ${schemaName}: ${error.message}`);
+      }
     }
   }
 
