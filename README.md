@@ -83,7 +83,7 @@ npm run start
 npm run start:dev
 ```
 
-1. if you get Cannot find module 'bcrypt' error, please run the following command (see [cannot-find-module-bcrypt](https://stackoverflow.com/questions/34546272/cannot-find-module-bcrypt)):
+1. If you encounter a 'Cannot find module 'bcrypt'' error, please execute the following command (see [cannot-find-module-bcrypt](https://stackoverflow.com/questions/34546272/cannot-find-module-bcrypt)):
 ```bash
 npm uninstall bcrypt
 npm install bcrypt
