@@ -40,6 +40,21 @@ Ensure that the following are installed:
 ```bash
 npm install .
 ```
+## MongoDB Setup
+#### **Creating the Database**
+1. Start your MongoDB server and create a new database
+2. **Importing collections**: 
+Import the users, categories, and products collections from the database folder using the following command:
+```bash
+mongoimport --db your_database_name --collection your_collection_name --file path_to_your_file.json --jsonArray
+```
+Be sure to replace `your_database_name`, `your_collection_name`, and `path_to_your_file.json` with your actual database name, collection name, and file path, respectively.
+
+  **Note: This step is only required for the initial setup to create an admin user. This admin user will enable you to log in and create additional users, categories, and products.**
+
+3. **Troubleshooting Import Issues**
+If the import does not work as expected, you can try using MongoDB Compass for a more user-friendly import experience. Alternatively, you can skip this step and disable authentication temporarily to create an admin user.
+
 ## Running the Project
 ### Environment Variables
 To run this project, you will need to set the following environment variables in the .env file
@@ -59,6 +74,7 @@ To run this project, you will need to set the following environment variables in
 `ACCESS_TOKEN_LIVED`
 
 `REFRESH_TOKEN_LIVED`
+
 ### Running the app
 **development**
 ```bash
