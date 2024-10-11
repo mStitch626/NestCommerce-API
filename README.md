@@ -70,7 +70,7 @@ npm run start:dev
 ```
 ## API documentation
 You can access the generated API documentation at:
-http://localhost:3000/api/docs
+http://localhost:3000/api-docs
 <br>
 Make sure to replace `localhost:3000` with your server's actual address if it's hosted elsewhere.
 
