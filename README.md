@@ -57,7 +57,7 @@ If the import does not work as expected, you can try using MongoDB Compass for a
 
 ## Running the Project
 ### Environment Variables
-To run this project, you will need to set the following environment variables in the .env file
+To run this project, you will need to set the following environment variables in the `.env` file
 
 `DB_HOST`
 
