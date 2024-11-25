@@ -55,10 +55,6 @@ mongoimport --db your_database_name --collection your_collection_name --file pat
 ```
 Be sure to replace `your_database_name`, `your_collection_name`, and `path_to_your_file.json` with your actual database name, collection name, and file path, respectively.
 
-  **Note: This step is only required for the initial setup to create an admin user. This admin user will enable you to log in and create additional users, categories, and products.**
-
-3. **Troubleshooting Import Issues**
-If the import does not work as expected, you can try using MongoDB Compass for a more user-friendly import experience. Alternatively, you can skip this step and disable authentication temporarily to create an admin user.
 
 ## Running the Project
 ### Environment Variables
@@ -86,12 +82,6 @@ npm run start
 **watch mode**
 ```bash
 npm run start:dev
-```
-
-1. If you encounter a 'Cannot find module 'bcrypt'' error, please execute the following command (see [cannot-find-module-bcrypt](https://stackoverflow.com/questions/34546272/cannot-find-module-bcrypt)):
-```bash
-npm uninstall bcrypt
-npm install bcrypt
 ```
 
 ## API documentation

@@ -1,6 +1,5 @@
 // I used ChatGPT to generate category and product data
- 
-users = [
+ users = [
     {
         "username":"maitmehdi",
         "first_name":"Mohamed",
@@ -8,32 +7,8 @@ users = [
         "password":"mohamed",
         "confirmed_password":"mohamed",
         "role":"admin"
-    },
-    {
-        "username":"m.chiboub",
-        "first_name":"Mayar",
-        "last_name":"Chiboub",
-        "password":"mayar",
-        "confirmed_password":"mayar",
-        "role":"manager"
-    },
-    {
-        "username":"k.haddar",
-        "first_name":"Kamel",
-        "last_name":"Haddar",
-        "password":"kamel",
-        "confirmed_password":"kamel",
-        "role":"admin"
-    },
-    {
-        "username":"k.bellili",
-        "first_name":"Khaled",
-        "last_name":"Bellili",
-        "password":"khaled",
-        "confirmed_password":"khaled",
-        "role":"client"
     }
-];
+]
 
 categories = [
     {
